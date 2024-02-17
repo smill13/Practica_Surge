@@ -1,0 +1,25 @@
+name: Deploy to Surge
+
+on:
+  push:
+    branches:
+      - main # o el nombre de tu rama principal
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Surge.sh
+      run: |
+        npm install -g surge
+
+    - name: Build and Deploy
+      run: |
+
+        # Despliega en Surge.sh
+        surge --project ./ --domain ${{ secrets.SURGE_LOGIN }} --token  ${{ secrets.SURGE_TOKEN }}
+
