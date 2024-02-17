@@ -19,7 +19,8 @@ jobs:
 
     - name: Build and Deploy
       run: |
-
         # Despliega en Surge.sh
-        surge --project ./ --domain ${{ secrets.SURGE_LOGIN }} --token  ${{ secrets.SURGE_TOKEN }}
-
+        surge --project ./ --domain ${{ secrets.SURGE_LOGIN }}
+      env:
+        SURGE_LOGIN: smillriveradiaz13@gmail.com  
+        SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
