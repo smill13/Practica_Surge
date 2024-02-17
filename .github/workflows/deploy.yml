@@ -20,4 +20,4 @@ jobs:
     - name: Build and Deploy
       run: |
         # Despliega en Surge.sh con el dominio específico
-        surge --project ./ --token ${{ secrets.SURGE_TOKEN }} --domain practica-Surge-smill13.surge.sh
+        surge --project ./ --token ${{ secrets.SURGE_TOKEN }} --domain practica-surge-smill13.surge.sh
