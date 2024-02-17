@@ -13,10 +13,13 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build and Deploy
+      env:
+        SURGE_API_KEY: ${{ secrets.SURGE_API_KEY }}
+        SURGE_SUBDOMAIN: ${{ secrets.SURGE_SUBDOMAIN }}
       run: |
         # Configurar Surge.sh
         npm install --global surge
-        surge token <SURGE_API_KEY> 
+        surge token $SURGE_API_KEY
 
         # Desplegar en Surge.sh
-        surge --project ./ --domain <SURGE_SUBDOMAIN>.surge.sh 
+        surge --project ./ --domain $SURGE_SUBDOMAIN.surge.sh
